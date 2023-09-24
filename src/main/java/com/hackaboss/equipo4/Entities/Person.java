@@ -17,11 +17,11 @@ public class Person extends GenericId {
     private String firstSurname;
     @Column(name = "second_surname", length = 50, nullable = false)
     private String secondSurname;
-    @Column(name = "dni", length = 9, nullable = false)
+    @Column(name = "dni", length = 9, nullable = false, unique = true)
     private String dni;
     @Column(name = "phone", length = 20, nullable = false)
     private String phone;
-    @Column(name = "email", length = 100, nullable = false)
+    @Column(name = "email", length = 100, nullable = false, unique = true)
     private String email;
     @Column(name = "employee", nullable = false)
     private Boolean employee;
