@@ -1,0 +1,179 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang3082{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sl276\slmult1\b\f0\fs22\lang10 Requerimientos Funcionales del Proyecto, V1.5:\par
+\par
+\b0 Para esta primera versi\'f3n vamos a considerar que vamos a utilizar 1 modulo de Entities; de manera estandar.\par
+\ul\par
+\b Requisitos funcionales:\par
+\par
+\ulnone -Entidad "Elementos":\par
+\par
+\b0 El sistema representar\'e1 los siguientes atributos para la generaci\'f3n y registro de los items en el sistema:\par
+\b\par
+\b0 .Persona [Asocia un \'fanico objeto a una persona: relaci\'f3n 1:1 ->  unique]\par
+.Tipo [Asocia un objeto a un tipo de objeto de la entidad "Tipo" ]\b\par
+\b0 .Descripci\'f3n [String con la informaci\'f3n del objeto]\par
+.Motivo (opcional) [String con la informaci\'f3n del objeto sobre su ingreso]\lang3082\par
+.Estado [Representa su posici\'f3n dentro (1) o fuera (0) del sistema desde su \'faltima actualizaci\'f3n]\par
+\lang10\par
+\par
+\ul Restricciones de los atributos de "Elementos":\par
+\par
+\ulnone -Un "Elemento" s\'f3lo puede poseer un "Tipo" a la vez.\ul\par
+\ulnone -El atributo "motivo" es opcional y puede o no exponerse en la creaci\'f3n del elemento.\b\par
+\par
+\ul\b0 Requisitos gen\'e9ricos:\ulnone\par
+\par
+Atributos gen\'e9ricos: Esta entidad presenta 1 atributos gen\'e9ricos, que son:\par
+\b -ID [\b0 Identificador]\par
+\par
+\ul Auditoria de fechas: \ulnone La entidad deber\'e1 contener la siguiente informaci\'f3n de la auditoria de fechas:\par
+\par
+.Fecha de creaci\'f3n (Fecha_crea- Not null)\par
+.Fecha de modificaci\'f3n  (Fecha_mod- Not null)\par
+\par
+\par
+\ul Auditor\'eda de personas: \ulnone La entidad deber\'e1 contener la informaci\'f3n de la persona que est\'e1 registrando el elemento en el momento de la creaci\'f3n de este o su ingreso/salida de registro previo:\par
+\par
+\b -Entidad "Personas":\par
+\par
+\b0 El sistema representar\'e1 los siguientes atributos para la generaci\'f3n y registro de los usuarios que quieran entrar en la empresa:\par
+\b\par
+\b0 .DNI [Valor personal \'fanico por cada persona. \'danico]\par
+.Empleado [Registra si la persona es un empleado (1) o es un visitante (0)]\par
+.Nombre [Primer nombre de la persona, String]\par
+.Apellido [Primer apellido de la persona, String]\par
+SegundoApellido (Opcional) [Segundo apellido de la persona, String]\par
+Tel\'e9fono (Opcional) [N\'famero de celular de la persona, String]\line Correo (Opcional) [Correo personal, String]\par
+\par
+\par
+\ul Restricciones de los atributos de "Personas":\par
+\ulnone\par
+-Los atributos "Identidad", "Empleado", "Nombre", y "Apellido"; no pueden ser nulos.\par
+-El atributo "SegundoApellido" es opcional para nuestro sistema en esta primera versi\'f3n.\par
+-El atributo "Tel\'e9fono" es opcional para nuestro sistema en esta primera versi\'f3n.\par
+-El atributo "Correo" es opcional para nuestro sistema en esta primera versi\'f3n.\par
+\b\par
+\par
+\ul\b0 Requisitos gen\'e9ricos:\ulnone\par
+\par
+Atributos gen\'e9ricos: Esta entidad presenta 1 atributos gen\'e9ricos, que es:\par
+\par
+\b ID [\b0 Identificador]\par
+\par
+\par
+\ul Auditoria de fechas: \ulnone La entidad deber\'e1 contener la siguiente informaci\'f3n de la auditoria de fechas en el ingreso de elementos:\par
+\par
+.Fecha de creaci\'f3n (Fecha_crea- Not null)\par
+.Fecha de modificaci\'f3n  (Fecha_mod- Not null)\par
+\par
+\ul Auditor\'eda de personas: \ulnone La entidad deber\'e1 contener la informaci\'f3n de la persona que est\'e1 registrando el elemento en el momento de la creaci\'f3n de este o su ingreso/salida de registro previo:\par
+\par
+\b -Entidad "RegistroObjetos":\par
+\par
+\b0 El sistema guardar\'e1 en esta entidad todos los registros que se vayan generando en el programa, y poseer\'e1 los siguientes atributos:\par
+\par
+.TipoReg [Muestra si el registro entrante es de entrada (1) o de salida del sistema (0)]\par
+.Hora [Muestra la hora local en la que se ejecuta la creaci\'f3n de este, con localdate()]\par
+.Error(booleana) [Representa si el registro ha presentado un aviso de error (1) o no tuvo ninguna anomal\'eda en el proceso (0)]\par
+\par
+\par
+\ul Restricciones de los atributos de "RegistroObjetos":\par
+\ulnone\par
+-Los atributos "TipoReg", "Hora", y "Error"; no pueden ser nulos.\par
+-El atributo "Hora" obtendr\'e1 su valor de la hora local del sistema.\b\par
+\par
+\ul\b0 Requisitos gen\'e9ricos:\ulnone\par
+\par
+Atributos gen\'e9ricos: Esta entidad presenta 3 atributos gen\'e9ricos, que son:\par
+\par
+\b ID [\b0 Identificador]\par
+\b Elemento [\b0 IDElemento]\par
+\b Persona [\b0 IDPersona]\par
+\par
+\ul Auditoria de fechas: \ulnone La entidad deber\'e1 contener la siguiente informaci\'f3n de la auditoria de fechas en el ingreso de elementos:\par
+\par
+\ul Auditor\'eda de personas: \ulnone La entidad deber\'e1 contener la informaci\'f3n de la persona que est\'e1 registrando el elemento en el momento de la creaci\'f3n de este o su ingreso/salida de registro previo:\par
+\par
+\b -Entidad "Tipo":\par
+\par
+\b0 El sistema guardar\'e1 en esta entidad los nombres correspondientes a los diferentes tipos de objetos que se pueden registrar en el sistema. Su atributo principal ser\'e1 el siguiente:\par
+\par
+-Nombre [Representa el nombre gen\'e9rico de un tipo de objetos en el que se engloba el "Elemento", String]\par
+\par
+\ul Restricciones de los atributos de "RegistroObjetos":\par
+\ulnone\par
+-No pueden existir m\'e1s de un registro de "Tipo" que posean el mismo atributo "Nombre"\par
+\b\par
+\ul\b0 Requisitos gen\'e9ricos:\ulnone\par
+\par
+Atributos gen\'e9ricos: Esta entidad presenta 1 atributos gen\'e9ricos, que es:\par
+\par
+\b ID [\b0 Identificador]\par
+\par
+-----\par
+\b Funciones recogidas para las operaciones:\par
+\par
+C\'e1lculos y creaciones :\par
+\par
+\ul\b0 --SumaElementos (sum(tipo) ; Estado.Elemento=1) \ulnone [Procede a una suma o lista de todos los elementos de 1 mismo tipo dentro del sistema]\par
+\par
+\ul --IngresarItem() \ulnone genera objeto Elemento (\b ID,Persona(Elementos.Persona=Persona.DNI), Tipo (Elemento.Tipo=Tipo), Descripcion(Elementos.Descripcion=Descripcion), Motivo(Elemento.Motivo=Motivo), Estado=1)\par
+\b0\par
+\ul --IngresarPersona()->\ulnone genera objeto persona (\b ID, DNI (Persona.DNI=DNI) , Empleado(Persona.Empleado=Empleado),Nombre (Persona.Nombre=Nombre) Apellido(Persona.Apellido= Apellido),SegundoApellido(Persona.SegundoApellido=SegundoApellido), Telefono (Persona.Telefono=Telefono), Correo (Persona.Correo=Correo)\par
+\b0\par
+\ul --RegistroEntrada()->\ulnone generador de informes. (\b ID, Elemento (Elemento=IDElemento), Persona(Persona=IDPersona), TipoReg(TipoReg=1),Hora(localdate()) Error(0).\par
+\par
+\ul\b0 --RegistroSalida()->\ulnone generador de informes. (\b ID, Elemento (Elemento=IDElemento), Persona(Persona=IDPersona), TipoReg(TipoReg=0),Hora(localdate()) Error(0).\b0\par
+\par
+\par
+\ul --Informe(): \ulnone (\b recoge \'faltimas instancias de RegistroObjeto, pueden ser exportados, funci\'f3n a definir, no se almacena)-\b0 -->\b ID \b0 (ID=ID.Elemento), \b Estado\b0 ( Estado=Estado.Elemento), \b Hora \b0 (Hora=Hora.RegistroObjeto)\par
+\par
+\par
+\ul\par
+\b Funcionalidad del programa:\par
+Registropasos\ulnone :\par
+\par
+Persona, objetos a identificar, y tipo de registro a proceder=\par
+\par
+Persona\par
+Objeto[objeto1, objeto2]\par
+TipoRegistro(1/0) \par
+\b0\par
+\par
+\b IF TipoRegistro=1\par
+-\b0 pregunta documento persona->>NIF identifica\par
+\b IF NIF Exist\b0\par
+   \b For each Objeto(\par
+\b0  \b IF Elemento.Persona=Persona.DNI & Elemento.ID=Objeto.ID\par
+        \b0 update Elemento.Persona=Persona.DNI & Elemento.ID=Objeto.ID (Estado.Elemento=1)\par
+        RegistroEntrada()\par
+   \b ELSE \par
+        \b0 IngresarItem()\par
+        RegistroEntrada()\par
+)\par
+\par
+\b ELSE \par
+\b0   IngresarPersona()\par
+  IngresarItem()\par
+  RegistroEntrada()\par
+\par
+--\par
+\par
+\b ELSE "TipoRegistro=0"\par
+-\b0 pregunta documento persona->>NIF identifica\par
+   \b For each Objeto \b0 (\par
+\b IF Elemento.Persona=Persona.DNI & Elemento.ID=Objeto.ID\par
+        \b0 update Elemento.Persona=Persona.DNI & Elemento.ID=Objeto.ID (Elemento.Estado=0)\b\par
+\b0         RegistroSalida()\par
+   \b ELSE\b0\par
+      RegistroSalida()\b\par
+\b0       update RegistroSalida (Error=1))\b\par
+      \b0 Printl("Manos arriba!")\par
+)\par
+\par
+\ul\par
+
+\pard\sa200\sl276\slmult1\ulnone\par
+}
+ 
