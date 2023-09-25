@@ -29,27 +29,6 @@
 					"response": []
 				},
 				{
-					"name": "Item/getTotal",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:9000/item/total/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"item",
-								"total",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Item/getById",
 					"request": {
 						"method": "GET",
